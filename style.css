@@ -8,10 +8,31 @@
   font-optical-sizing: auto;
   scroll-behavior: smooth;
 }
+.content {
+  justify-content: center;
+  width: 100%;
+  background-color: #0d0d0d85;
+  z-index: 1001;
+  position: absolute;
+  max-height: 0px;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 60px;
+  overflow: hidden;
+  height: auto;
+  & li {
+    padding: 5px;
+  }
+  transition: max-height 0.3s ease;
+}
+.navMenu {
+  display: none;
+  flex-direction: column;
+}
 
 body {
   background: linear-gradient(135deg, #0d0d0d, #1f1f1f);
-  background-attachment: fixed;
 }
 .navBtn {
   transition: all 0.3s;
@@ -159,7 +180,7 @@ main {
       p {
         letter-spacing: 2px;
         line-height: 2;
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 600;
       }
     }
@@ -168,11 +189,16 @@ main {
       width: 400px;
     }
 
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     .ourLinks {
+      text-align: center;
       list-style: none;
       display: flex;
       align-items: center;
-      gap: 30px;
       margin: 20px 0;
 
       a {
@@ -180,15 +206,7 @@ main {
         color: #f2f2f2;
         font-size: 20px;
         font-weight: 600;
-
-        .fa-brands {
-          transition: all 0.2s ease-in-out;
-
-          &:hover {
-            color: #f96d00;
-            transform: scale(2);
-          }
-        }
+        margin: 30px;
       }
     }
   }
@@ -572,51 +590,62 @@ main {
 }
 
 @media (max-width: 550px) {
-  html, body {
+  html,
+  body {
     width: 100%;
     overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    height: 100%;
+  }
+  #about .title h1 {
+    font-size: 20px;
+  }
+  .story p {
+    font-size: 18px;
+    font-weight: 600;
   }
 
   nav {
-    flex-direction: column;
     align-items: center;
-    width: 100%; 
+    justify-content: space-around;
+    width: 100%;
     gap: 25px;
     position: fixed;
     top: 0;
     padding: 20px 0;
     left: 0;
-    background-color: rgba(30, 30, 30, 0.95);
+    background-color: rgb(19, 19, 19);
     z-index: 999;
   }
-
+  .navMenu {
+    display: flex;
+    color: #f2f2f2;
+  }
   .logo h2 {
     font-size: 18px;
     text-align: center;
   }
 
   .nav-middle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
+    display: none;
   }
 
-  .nav-middle a {
-    white-space: nowrap;
-    font-size: 12px;
-    padding: 5px 10px;
+  .nav-social-icons {
+    display: none;
   }
-  #main-container h1,h2{
+  #main-container h1,
+  h2 {
     font-size: smaller;
   }
+
   .navBtn {
     font-size: 14px;
   }
-
+  #about {
+    padding-top: 100px;
+  }
   .aboutInfo {
     flex-direction: column;
     width: 100%;
@@ -624,12 +653,7 @@ main {
     text-align: center;
   }
 
-  #about {
-    padding-top: 220px;
-  }
-
   #offers {
-    padding-top: 200px;
     text-align: center;
 
     .cardsCont {
@@ -645,8 +669,14 @@ main {
       margin: 0 auto;
     }
   }
-  #menu{
-    padding-top: 100px;
-
+  .links {
+    flex-direction: column;
+    & span {
+      visibility: hidden;
+    }
+  }
+  .ourLinks {
+    justify-content: center;
+    
   }
 }

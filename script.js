@@ -44,3 +44,12 @@ $(function () {
     $carousel.animate({ scrollLeft: "+=" + scrollAmount }, 200);
   });
 });
+
+
+$('.fa-bars, .content').on('mouseover', function () {
+  $(".content").css('max-height', '500px'); 
+});
+
+$('.fa-bars, .content').on('mouseout', function () {
+  $(".content").css('max-height', '0px');
+});
